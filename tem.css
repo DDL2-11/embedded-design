@@ -64,295 +64,111 @@ input[type="range"]::-webkit-slider-thumb:active {
 
 /*** button ***/
 
-@import url('https://fonts.googleapis.com/css?family=Roboto:400');
-
-* {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    outline: none;
-}
-
-#button-wrapper {
-    font-family: 'Roboto', sans-serif;
-    font-size: 21px;
-    text-transform: uppercase;
-    letter-spacing: 6px;
-    color: white;
-    width: 100%;
-    height: 100px;
-    position: absolute;
-    top: calc(50% - 70px);
-    left: 0;
-    padding: 15px 0px;
-    overflow: visible;
-    margin-top: 80px;
-}
-
-.submit,
-.loader,
-.loader-wrapper {
-    position: absolute;
-    left: 0;
-    right: 0;
+.entire-object {
+    width: 300px;
+    height: 120px;
     margin: 0 auto;
+    margin-top: 100px;
 }
 
-.submit {
-    z-index: 2;
-    width: 325px;
-    height: 95px;
-    background: linear-gradient(to right, #ffb369 0%, #ff4272 100%);
+.submitted {
+    display: none;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+
+}
+
+input:checked {
     display: block;
-    border-radius: 200px;
-    text-align: center;
-    color: rgba(255, 255, 255, 1);
-    text-decoration: none;
-    line-height: 440%;
-    transition: all 0.7s ease, line-height 0s ease, color 0.4s ease, filter 0.2s ease;
 }
 
-#button-wrapper::selection,
-.submit::selection {
-    background: transparent;
-}
-
-.submit:before {
-    content: "";
-    z-index: -2;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to right, #ffb369 0%, #ff4272 100%);
+input:checked~* label.submitted {
     display: block;
-    border-radius: 200px;
-    position: absolute;
-    left: 0;
-    top: 0;
-    opacity: 0.8;
-    transform: scale(0.9) translateY(15px);
-    filter: blur(20px);
-    transition: all 0.2s ease;
+    position: relative;
 }
 
-.submit:after {
-    content: "";
-    z-index: -4;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to right, #ffb369 0%, #ff4272 100%);
-    display: block;
-    border-radius: 200px;
-    position: absolute;
-    left: 0;
-    top: 0;
+input:checked~* div.button-box {
+    animation: tilt 100s linear;
+    top: -120px;
+}
+
+input:checked~* div.circle {
+    animation: spin 100s .2s linear;
+}
+
+.check-mark {
+    top: 40px;
+    left: 30px;
+    width: 50px;
+    height: 20px;
+    position: relative;
+    transform: rotate(-45deg);
+    border-left: 8px solid white;
+    border-bottom: 8px solid white;
+}
+
+.circle {
     opacity: 0;
-    transform: scale(1);
-}
-
-.submit:hover:before {
-    transform: scale(0.9) translateY(5px);
-    filter: blur(15px);
-}
-
-.submit:active {
-    line-height: 460%;
-    filter: brightness(0.95);
-    transition: all 0s;
-}
-
-.checked .submit:before {
-    top: 0px;
-    opacity: 0;
-}
-
-.checked .submit:after {
-    animation: submit-after-anim 0.5s 4.4s cubic-bezier(0.39, 0.575, 0.565, 1);
-}
-
-.checked {
-    -webkit-filter: url("#goo");
-    filter: url("#goo");
-}
-
-.yellow {
-    background-color: #ffb369;
-}
-
-.pink {
-    background-color: #ff4272;
-}
-
-.orange {
-    background-color: #ff7b6e;
-    transform: scale(0.2) rotate(30deg) translate(0px);
-}
-
-.checked .pink {
-    animation: loader-anim-pink 4s cubic-bezier(0.645, 0.045, 0.355, 1);
-}
-
-.checked .yellow {
-    animation: loader-anim-yellow 4s 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
-}
-
-.checked .orange {
-    animation: loader-anim-orange 4s 0.7s cubic-bezier(0.645, 0.045, 0.355, 1);
-}
-
-.loader {
-    width: 95px;
-    height: 95px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
-    opacity: 0;
-    z-index: 1;
+    background-color: mediumseagreen;
 }
 
-.checked .loader {
-    opacity: 1;
-}
-
-.checked .loader-wrapper {
-    animation: wrapper-loader-anim 4.2s linear;
-    width: 95px;
-    height: 95px;
-    transform: scale(0)
-}
-
-.checked .submit {
-    width: 95px;
-    color: rgba(255, 255, 255, 0);
-    background: linear-gradient(to right, #ff7b6e 0%, #ff7b6e 100%);
-    animation: submit-anim 4s cubic-bezier(0.39, 0.575, 0.565, 1);
-}
-
-
-.check-wrapper {
-    position: absolute;
-    left: 0;
-    right: 0;
+.button-box {
+    top: 15px;
+    width: 300px;
+    height: 80px;
     margin: 0 auto;
-    width: 95px;
-    height: 95px;
-    z-index: -1;
-    opacity: 1;
+    position: relative;
 }
 
-.check-wrapper svg {
-    margin-top: 31px;
-    margin-left: 16px;
+.button {
+    color: white;
+    width: 300px;
+    height: 80px;
+    border: none;
+    font-size: 2em;
+    line-height: 77px;
+    text-align: center;
+    border-radius: 6px;
+    background: dodgerblue;
+    font-family: sans-serif;
 }
 
-.check {
-    fill: none;
-    stroke: #ffffff;
-    stroke-width: 10;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke-miterlimit: 10;
-    stroke-dasharray: 1000;
-    stroke-dashoffset: 1000;
-    z-index: -1;
+#clicky {
+    display: none;
 }
 
-.checked .check-wrapper {
-    z-index: 3;
-}
-
-.checked .check {
-    animation: check 4s 4.4s ease forwards;
-}
-
-
-@keyframes loader-anim-pink {
+@keyframes tilt {
     0% {
-        transform: scale(0.2) rotate(0deg) translate(220px, 0px);
+        transform: rotate(0);
+        opacity: 1;
+    }
+
+    .25% {
+        transform: rotate(-90deg) scale(.01);
+        opacity: 0;
     }
 
     100% {
-        transform: scale(0.2) rotate(1100deg) translate(300px, 0px);
+        opacity: 0;
     }
 }
 
-@keyframes loader-anim-yellow {
+@keyframes spin {
     0% {
-        transform: scale(0.2) rotate(0deg) translate(300px, 0px);
+        transform: rotate(180deg) scale(.55);
+        opacity: 0;
+    }
+
+    .25% {
+        transform: rotate(0);
+        opacity: 1;
     }
 
     100% {
-        transform: scale(0.2) rotate(1100deg) translate(220px, 0px);
-    }
-}
-
-@keyframes loader-anim-orange {
-
-    0%,
-    70% {
-        transform: scale(0.2) rotate(30deg) translate(0px);
-    }
-
-    85% {
-        transform: scale(0.2) rotate(30deg) translate(-300px);
-    }
-
-    100% {
-        transform: scale(0.2) rotate(30deg) translate(0px);
-    }
-}
-
-@keyframes wrapper-loader-anim {
-    0% {
-        transform: scale(0) translateY(0px)
-    }
-
-    10% {
-        transform: scale(1) translateY(20px)
-    }
-
-    50%,
-        {
-        transform: scale(1.2) translateY(10px)
-    }
-
-    90% {
-        transform: scale(1) translateY(-10px)
-    }
-
-    100% {
-        transform: scale(0) translateY(0px)
-    }
-}
-
-@keyframes submit-after-anim {
-    0% {
-        transform: scale(1);
-        opacity: 0.3
-    }
-
-    100% {
-        transform: scale(2);
-        opacity: 0
-    }
-}
-
-@keyframes submit-anim {
-    0% {
-        transform: scale(1)
-    }
-
-    5%,
-    95% {
-        transform: scale(0.7)
-    }
-
-    100% {
-        transform: scale(1)
-    }
-}
-
-@keyframes check {
-    from {
-        stroke-dashoffset: 1000;
-    }
-
-    to {
-        stroke-dashoffset: 0;
+        opacity: 1;
     }
 }
