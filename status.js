@@ -18,13 +18,13 @@ $('document').ready(function () {
         bubblyButtons[i].addEventListener('click', animateButton, false);
     }
 
-    // let [button, modal] = document.body.children;
+    let [button, modal] = document.body.children;
 
-    // button.addEventListener('click', () => {
-    //     setTimeout(function() {
-    //         modal.showModal()
-    //         document.addEventListener('click', ({target}) => target === modal && modal.close());
-    // }, 700)});
+    button.addEventListener('click', () => {
+        setTimeout(function() {
+            modal.showModal()
+            document.addEventListener('click', ({target}) => target === modal && modal.close());
+    }, 700)});
     
 });
 
