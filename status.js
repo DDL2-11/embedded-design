@@ -8,6 +8,7 @@ $('document').ready(function () {
         e.target.classList.add('animate');
         setTimeout(function () {
             e.target.classList.remove('animate');
+            alert('门已被正常关闭，一切正常。');
         }, 700);
     };
 
@@ -17,13 +18,13 @@ $('document').ready(function () {
         bubblyButtons[i].addEventListener('click', animateButton, false);
     }
 
-    let [button, modal] = document.body.children;
+    // let [button, modal] = document.body.children;
 
-    button.addEventListener('click', () => {
-        setTimeout(function() {
-            modal.showModal()
-            document.addEventListener('click', ({target}) => target === modal && modal.close());
-    }, 700)});
+    // button.addEventListener('click', () => {
+    //     setTimeout(function() {
+    //         modal.showModal()
+    //         document.addEventListener('click', ({target}) => target === modal && modal.close());
+    // }, 700)});
     
 });
 
