@@ -1,6 +1,6 @@
 $('document').ready(function () {
     var input = '',
-        correct = '1593';
+        correct = '9527';
 
     var dots = document.getElementsByClassName('dot'),
         numbers = document.getElementsByClassName('number');
