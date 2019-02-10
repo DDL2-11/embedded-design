@@ -1,5 +1,21 @@
 $('document').ready(function () {
     var animateButton = function (e) {
+        // 状态码
+        let state_code = 0;
+        let waring_text = '';
+
+        if (state_code == 0) {
+            waring_text = '关闭状态，正常'
+        }
+        else if (state_code == 1) {
+            waring_text = '打开状态，正常'
+        }
+        else if (state_code == 2) {
+            waring_text = '关闭状态，异常'
+        }
+        else if (state_code == 3) {
+            waring_text = '打开状态，异常'
+        }
 
         e.preventDefault;
         //reset animation
@@ -8,7 +24,7 @@ $('document').ready(function () {
         e.target.classList.add('animate');
         setTimeout(function () {
             e.target.classList.remove('animate');
-            alert('门已被正常关闭，一切正常。');
+            alert(waring_text);
         }, 700);
     };
 
@@ -18,13 +34,13 @@ $('document').ready(function () {
         bubblyButtons[i].addEventListener('click', animateButton, false);
     }
 
-    let [button, modal] = document.body.children;
+    // let [button, modal] = document.body.children;
 
-    button.addEventListener('click', () => {
-        setTimeout(function() {
-            modal.showModal()
-            document.addEventListener('click', ({target}) => target === modal && modal.close());
-    }, 700)});
+    // button.addEventListener('click', () => {
+    //     setTimeout(function() {
+    //         modal.showModal()
+    //         document.addEventListener('click', ({target}) => target === modal && modal.close());
+    // }, 700)});
     
 });
 
